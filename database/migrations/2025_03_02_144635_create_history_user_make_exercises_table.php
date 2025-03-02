@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('history_user_make_exercises', function (Blueprint $table) {
             $table->id();
-            $table->text('question');
-            $table->text('option1');
-            $table->text('option2');
-            $table->text('option3');
-            $table->text('option4');
-            $table->text('answer');
-            $table->integer('category_id')->nullable();
-            $table->integer('exercise_id')->nullable();
+            $table->integer('user_id');
+            $table->integer('exercise_id');
+            $table->integer('score');
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('history_user_make_exercises');
     }
 };
