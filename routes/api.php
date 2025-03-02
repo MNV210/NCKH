@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ use App\Http\Controllers\ContentController;
 
 Route::apiResource('/categories',CategoryController::class);
 Route::apiResource('/contents',ContentController::class);
+Route::apiResource('/users',UserController::class);
+Route::post('/login',[UserController::class,'login']);
