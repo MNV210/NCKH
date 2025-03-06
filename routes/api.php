@@ -9,6 +9,7 @@ use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\HeadContentsController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HistoryMakeTestController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -32,5 +33,7 @@ Route::apiResource('/question',QuestionController::class);
 Route::apiResource('/head_contents',HeadContentsController::class);
 Route::post('/login',[UserController::class,'login']);
 Route::apiResource('/blogs',BlogController::class);
+Route::apiResource('/history_test',HistoryMakeTestController::class);
+Route::post('/history_make_test', [HistoryMakeTestController::class, 'getHistoryByUserId']);
 
 Route::post('/contents/import', [ContentController::class, 'import']);

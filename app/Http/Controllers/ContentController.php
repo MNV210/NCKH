@@ -20,7 +20,7 @@ class ContentController extends Controller
      */
     public function index(Request $request)
     {
-        $contents = Content::where('category_id',$request->category_id)->with('category')->get();
+        $contents = Content::where('head_content',$request->head_content)->get();
 
         return response()->json($contents);
     }

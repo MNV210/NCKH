@@ -16,7 +16,10 @@ class HeadContentsController extends Controller
     {
         if($request->has('category_id')){
             $head_contents = Head_Contents::where('category_id',$request->category_id)->with('category')->get();
-        }else{
+        } else if($request->has('title')){
+            $head_contents = Head_Contents::where('title','like','%'.$request->title.'%')->with('category')->get();
+        }
+        else{
             $head_contents = Head_Contents::with('category')->get();
         }
 
