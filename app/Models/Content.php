@@ -4,22 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Head_Contents;
 
 class Content extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'question',
-        'answer',
-        'category_id',
+        'title',
+        'nga',
+        'viet',
+        'phienam',
+        'head_content',
     ];
 
-    public function category()
+    public function headcontent()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Head_Contents::class,'head_content');
     }
-
+   
     public function userMakeQuestions()
     {
         return $this->hasMany(UserMakeQuestion::class);

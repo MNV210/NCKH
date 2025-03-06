@@ -7,6 +7,8 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\HeadContentsController;
+use App\Http\Controllers\BlogController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,4 +29,8 @@ Route::apiResource('/contents',ContentController::class);
 Route::apiResource('/users',UserController::class);
 Route::apiResource('/exercises',ExerciseController::class);
 Route::apiResource('/question',QuestionController::class);
+Route::apiResource('/head_contents',HeadContentsController::class);
 Route::post('/login',[UserController::class,'login']);
+Route::apiResource('/blogs',BlogController::class);
+
+Route::post('/contents/import', [ContentController::class, 'import']);
