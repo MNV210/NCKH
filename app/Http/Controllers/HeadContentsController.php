@@ -46,7 +46,13 @@ class HeadContentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $head_content = Head_Contents::find($id);
+
+        if (is_null($head_content)) {
+            return response()->json(['message' => 'Resource not found'], 404);
+        }
+
+        return response()->json($head_content);
     }
 
     /**
